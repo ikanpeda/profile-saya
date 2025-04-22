@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil Saya</title>
+  <style>
+    body {
+      background-color: #f8f8ff;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+
+    img {
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
+    }
+
+    h1 {
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #e0f7fa;
+      margin: 6px auto;
+      padding: 10px;
+      width: 220px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    a img {
+      vertical-align: middle;
+      transition: transform 0.3s;
+    }
+
+    a img:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #004da8;
+    }
+
+    .sapa-box {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Halo, saya [Nama Kamu]</h1>
+  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Foto Profil" width="150">
+  <p>Saya adalah calon freelancer yang sedang belajar coding dari nol bersama Abel 😎</p>
+
+  <h2>Hobi Saya:</h2>
+  <ul>
+    <li>Ngoding</li>
+    <li>Main game</li>
+    <li>Dengerin musik</li>
+  </ul>
+
+  <p>
+    Yuk kenalan lewat
+    <a href="https://instagram.com" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30">
+    </a>
+  </p>
+
+  <p id="jam"></p>
+
+  <button onclick="gantiWarna()">Ganti Background</button>
+
+  <div class="sapa-box">
+    <input type="text" id="namaInput" placeholder="Masukkan nama kamu">
+    <button onclick="sapa()">Sapa Saya</button>
+  </div>
+
+  <p id="sapaan"></p>
+
+  <script>
+    function updateJam() {
+      const jamSekarang = new Date();
+      const jam = jamSekarang.toLocaleTimeString();
+      document.getElementById("jam").innerText = "Waktu sekarang: " + jam;
+    }
+
+    setInterval(updateJam, 1000);
+
+    function gantiWarna() {
+      const warna = ["#f8f8ff", "#ffe4e1", "#d0f0c0", "#fafad2", "#e6f7ff"];
+      const acak = Math.floor(Math.random() * warna.length);
+      document.body.style.backgroundColor = warna[acak];
+    }
+
+    function sapa() {
+      const nama = document.getElementById("namaInput").value;
+      if (nama) {
+        document.getElementById("sapaan").innerText = "Halo, " + nama + "! 👋";
+      } else {
+        document.getElementById("sapaan").innerText = "Isi dulu dong namanya 😊";
+      }
+    }
+  </script>
+</body>
+</html>
